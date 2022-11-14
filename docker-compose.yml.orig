@@ -1,0 +1,52 @@
+version: '3'
+services:
+  webserv01:
+    build: .
+    ports:
+      - "8000-8010:80"
+    privileged: true
+    volumes:
+      - shrvol:/root/share
+    networks:
+      - prinet
+  webserv02:
+    build: .
+    ports:
+      - "9000-9010:80"
+    privileged: true
+    volumes:
+      - type: bind
+        source: /root/dirshr
+        target: /root/share
+        read_only: true
+    networks:
+      - prinet
+<<<<<<< HEAD
+  dbserver02:
+    image: mysql:latest
+    secrets:
+      - db-password
+    environment:
+      - MYSQL_DATABASE=example
+      - MYSQL_ROOT_PASSWORD_FILE=/run/secrets/db-password
+    depends_on:
+      - webserv01
+
+||||||| 983846f
+  dbserv01:
+    image: mysql:latest
+    secrets:
+      - db-password
+    environment:
+      - MYSQL_DATABASE=example
+      - MYSQL_ROOT_PASSWORD_FILE=/run/secrets/db-password
+    depends_on:
+      - webserv01
+
+=======
+>>>>>>> feature
+
+volumes:
+  shrvol:
+networks:
+  prinet:
