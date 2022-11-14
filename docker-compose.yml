@@ -21,6 +21,7 @@ services:
         read_only: true
     networks:
       - prinet
+<<<<<<< HEAD
   dbserver02:
     image: mysql:latest
     secrets:
@@ -31,6 +32,19 @@ services:
     depends_on:
       - webserv01
 
+||||||| 983846f
+  dbserv01:
+    image: mysql:latest
+    secrets:
+      - db-password
+    environment:
+      - MYSQL_DATABASE=example
+      - MYSQL_ROOT_PASSWORD_FILE=/run/secrets/db-password
+    depends_on:
+      - webserv01
+
+=======
+>>>>>>> feature
 
 volumes:
   shrvol:
