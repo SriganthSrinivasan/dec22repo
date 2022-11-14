@@ -21,7 +21,7 @@ services:
         read_only: true
     networks:
       - prinet
-  dbserv01:
+  dbserver02:
     image: mysql:latest
     secrets:
       - db-password
