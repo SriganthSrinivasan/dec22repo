@@ -21,16 +21,6 @@ services:
         read_only: true
     networks:
       - prinet
-  dbserv01:
-    image: mysql:latest
-    secrets:
-      - db-password
-    environment:
-      - MYSQL_DATABASE=example
-      - MYSQL_ROOT_PASSWORD_FILE=/run/secrets/db-password
-    depends_on:
-      - webserv01
-
 
 volumes:
   shrvol:
