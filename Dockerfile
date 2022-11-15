@@ -15,3 +15,4 @@ ADD index.html .
 #CMD ["/usr/sbin/init"]
 >>>>>>> Stashed changes
 New Line added to check Jenkins Web Hook
+Web Hook Check 02
